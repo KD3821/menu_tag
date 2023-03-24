@@ -1,7 +1,5 @@
 # menu_tag
 
-# menu_tag
-
 <h1 align="center">Menu Bar shows all submenus in one SQL query (Django)</h1>
 <p align="center">
 
