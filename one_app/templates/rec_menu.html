@@ -1,0 +1,16 @@
+
+<li>
+    {{ key2 }}
+</li>
+    <ul>
+        {% for obj in value2 %}
+            {% if obj.items %}
+                {% for key2, value2 in obj.items %}
+                   {% include "rec_menu.html" with obj=obj %}
+                {% endfor %}
+            {% else %}
+            <li>{{ obj }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+

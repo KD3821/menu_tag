@@ -1,0 +1,33 @@
+{% load custom_tags %}
+
+<div>
+    <ul>
+        {% for key, value in menus.items %}
+            <li><a href="{% url 'start' key %}">{{ key }}</a></li>
+            {% for obj in value %}
+                <ul>
+                    {% if obj.items %}
+                        {% for key1, value1 in obj.items %}
+                        <li>{{ key1 }}</li>
+                            {% if value1 %}
+                            <ul>
+                                {% for obj in value1 %}
+                                    {% if obj.items %}
+                                        {% for key2, value2 in obj.items %}
+                                            {% include "rec_menu.html" %}
+                                        {% endfor %}
+                                    {% else %}
+                                    <li>{{ obj }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                    <li>{{ obj }}</li>
+                    {% endif %}
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
